@@ -11,6 +11,7 @@ public class TestCalculadora {
 		double resultadoMulti;
 		double resultadoDivision;
 		double resultadoPromedio;
+	
 		calcu = new Calculadora();
 		resultadoSuma = calcu.sumar(5, 3);
 		resultadoResta = calcu.restar(10, 3);
@@ -27,6 +28,9 @@ public class TestCalculadora {
 		// invocar promediar
 		resultadoPromedio = calcu.promediar(10,8,9);
 		System.out.println("RESULTADO PROMEDIO : " + resultadoPromedio);
+		
+	//usar mostrarResultado
+		calcu.mostrarResultado();
 	}
 
 }
