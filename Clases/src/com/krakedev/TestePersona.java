@@ -8,7 +8,14 @@ public class TestePersona {
 
 		Persona p;// paso 1:para crear objetos tenemos que crear una variable de tipo persona
 		Persona p2 = new Persona();
+		
+		Persona p4=new Persona("Vicente",18,1.70); 
+		// 9.acceder a los atributos
+				System.out.println("nombre: " + p4.getNombre());
+				System.out.println("edad: " + p4.getEdadPersona());
+				System.out.println("estatura: " + p4.getEstatura());
 
+		
 		p = new Persona();// 2. crea el objeto y referenciarlo a p
 
 		// 3.acceder a los atributos
