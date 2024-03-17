@@ -15,6 +15,8 @@ public class TestProducto {
 		System.out.println("Nombre: "+produ.getNombre());
 		System.out.println("Descripcion: "+produ.getDescripcion());
 		System.out.println("Peso: "+produ.getPeso());
+		
+	
 
 	}
 
