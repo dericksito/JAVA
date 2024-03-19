@@ -6,6 +6,18 @@ public class Estudiante {
 private String nombre,apellido,cedula;
 private ArrayList<Nota> notas = new ArrayList<Nota>();
 
+
+
+
+public Estudiante(String nombre, String apellido, String cedula) {
+	
+	this.nombre = nombre;
+	this.apellido = apellido;
+	this.cedula = cedula;
+	
+}
+
+
 public void agregarNota(Nota nuevaNota) {
 	Nota elementoNota;
 	boolean codigoRepetido=false;
