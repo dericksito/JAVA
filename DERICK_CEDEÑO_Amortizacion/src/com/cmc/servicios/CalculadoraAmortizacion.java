@@ -39,7 +39,7 @@ public class CalculadoraAmortizacion {
 	        return cuota;
 	    }
 		
-	    public double calcularCuota(Prestamo prestamo) {
+	    public static double calcularCuota(Prestamo prestamo) {
 	        double Co = prestamo.getMonto();
 	        double i = prestamo.getInteres() / 12.0 / 100.0; 
 	        int n = prestamo.getPlazo(); 
