@@ -137,7 +137,7 @@ public class AdminEstudiantes {
 				con=ConexionBDD.conectar();
 				
 				ps=con.prepareStatement("select * from estudiantes where cedula=?");
-				ps.setString(1, "%"+cedulaBusqueda+"%");
+				ps.setString(1, cedulaBusqueda);
 				rs=ps.executeQuery();
 				
 				if(rs.next()) {
@@ -198,7 +198,7 @@ public class AdminEstudiantes {
 				
 				con=ConexionBDD.conectar();
 				
-				ps=con.prepareStatement("select * from estudiantes like ?");
+				ps=con.prepareStatement("select * from estudiantes where nombre like ?");
 				ps.setString(1, "%"+nombreBusqueda+"%");
 				rs=ps.executeQuery();
 				

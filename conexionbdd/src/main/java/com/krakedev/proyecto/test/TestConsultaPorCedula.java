@@ -9,7 +9,7 @@ public class TestConsultaPorCedula {
 
 	public static void main(String[] args) {
 		try {
-			ArrayList<Estudiantes> estudiante=AdminEstudiantes.buscarPorCedula("178890123");
+			ArrayList<Estudiantes> estudiante=AdminEstudiantes.buscarPorCedula("1700001099");
 			
 			System.out.println(estudiante);
 		} catch (Exception e) {

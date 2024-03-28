@@ -154,7 +154,7 @@ public class AdminPersonas {
 			
 			con=ConexionBDD.conectar();
 			
-			ps=con.prepareStatement("select * from personas like ?");
+			ps=con.prepareStatement("select * from personas where nombre like ?");
 			ps.setString(1, "%"+nombreBusqueda+"%");
 			rs=ps.executeQuery();
 			
