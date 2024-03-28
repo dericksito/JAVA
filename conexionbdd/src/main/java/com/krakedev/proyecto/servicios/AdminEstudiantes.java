@@ -2,8 +2,10 @@ package com.krakedev.proyecto.servicios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -121,6 +123,135 @@ public class AdminEstudiantes {
 			
 			
 		}
+		
+		
+		
+		public static ArrayList<Estudiantes> buscarPorCedula(String cedulaBusqueda)throws Exception{
+			ArrayList<Estudiantes> estudiante=new ArrayList<Estudiantes>();
+			Connection con=null;
+			PreparedStatement ps;
+			ResultSet rs=null;
+			
+			try {
+				
+				con=ConexionBDD.conectar();
+				
+				ps=con.prepareStatement("select * from estudiantes where cedula=?");
+				ps.setString(1, "%"+cedulaBusqueda+"%");
+				rs=ps.executeQuery();
+				
+				if(rs.next()) {
+					String cedula=rs.getString("cedula");
+					
+					Estudiantes est=new Estudiantes();
+					est.setCedula(cedula);
+					estudiante.add(est);
+					
+				}else {
+					return null;
+				}
+				
+				
+			}catch (Exception e) {
+				
+				LOGGER.error("error en la eliminacion");
+				throw e;
+			}finally {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					
+					LOGGER.error("error con la base de datos",e);
+		            throw new Exception("error con la base de datos");		
+		            }finally {
+						try {
+							con.close();
+						} catch (SQLException e) {
+							
+							LOGGER.error("error con la base de datos",e);
+				            throw new Exception("error con la base de datos");		
+				            }
+
+						
+					}
+
+				
+			
+			
+			
+			
+			
+		
+		}
+			return estudiante;
+	}
+		
+		
+		
+		public static ArrayList<Estudiantes> buscarPorNombre(String nombreBusqueda)throws Exception{
+			ArrayList<Estudiantes> estudiante=new ArrayList<Estudiantes>();
+			Connection con=null;
+			PreparedStatement ps;
+			ResultSet rs=null;
+			
+			try {
+				
+				con=ConexionBDD.conectar();
+				
+				ps=con.prepareStatement("select * from estudiantes like ?");
+				ps.setString(1, "%"+nombreBusqueda+"%");
+				rs=ps.executeQuery();
+				
+			while(rs.next()){
+				String cedula=rs.getString("cedula");
+				String nombre=rs.getString("nombre");
+				String apellido=rs.getString("nombre");
+				
+				Estudiantes estu=new Estudiantes();
+				estu.setCedula(cedula);
+				estu.setNombre(nombre);
+				estu.setApellido(apellido);
+				estudiante.add(estu);
+				
+				
+			}
+				
+				
+			}catch (Exception e) {
+				
+				LOGGER.error("error en la eliminacion");
+				throw e;
+			}finally {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					
+					LOGGER.error("error con la base de datos",e);
+		            throw new Exception("error con la base de datos");		
+		            }finally {
+						try {
+							con.close();
+						} catch (SQLException e) {
+							
+							LOGGER.error("error con la base de datos",e);
+				            throw new Exception("error con la base de datos");		
+				            }
+
+						
+					}
+
+				
+			
+			
+			
+			
+			
+		
+		}
+			return estudiante;
+	}
+		
+		
 	
 	
 }
